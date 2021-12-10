@@ -1,0 +1,22 @@
+{% extends "template.html" %}
+{% block conteudo %}
+    <form action="{{ url_for('criar') }}" method="post" enctype="multipart/form-data">
+        <fieldset>
+          <div class="form-group mt-3">
+            <label for="campo">Campo 1</label>
+            <input type="text" id="campo" name="campo" class="form-control">
+          </div>
+          <div class="form-group mt-3">
+            <label for="campo">Campo 2</label>
+            <input type="text" id="campo" name="campo" class="form-control">
+          </div>
+          <div class="form-group mt-3">
+            <label for="campo">Campo 3</label>
+            <input type="text" id="campo" name="campo" class="form-control">
+          </div>
+          <p class="text-center m-4">
+            <button type="submit" class="btn btn-primary btn-salvar">Realizar Predição</button>
+          </p>
+        </fieldset>
+    </form>
+{% endblock %}
