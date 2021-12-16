@@ -1,0 +1,13 @@
+version: "3"
+ 
+services:
+  flask:
+    image: business
+    ports:
+      - 8080:8080
+    deploy:
+      replicas: 1
+    network_mode: nginx_default
+
+
+ 

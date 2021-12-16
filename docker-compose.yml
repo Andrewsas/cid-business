@@ -4,7 +4,10 @@ services:
     flask:
         build: .
         container_name: "business_web"
+        image: business
         restart: always
         env_file: .env
         ports:
             - "8080:8080"
+        network_mode: nginx_default
+            
