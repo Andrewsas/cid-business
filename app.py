@@ -16,6 +16,8 @@ app.secret_key = os.environ['SECRET']
 
 @app.route('/novo')
 def novo():
+    if 'usuario_logado' not in session or session['usuario_logado'] == None:
+        return redirect(url_for('login', proxima=url_for('novo')))
     return render_template('novo.html', titulo='Nova predição')
 
 
@@ -30,6 +32,8 @@ def criar():
 
 @app.route('/')
 def login():
+    if 'usuario_logado' in session or session['usuario_logado'] != None:
+        return redirect(url_for('novo'))
     proxima = (request.args.get('proxima') if request.args.get('proxima') != None else '/novo')
     return render_template('login.html', proxima=proxima)
 
@@ -38,7 +42,10 @@ def login():
 def autenticar():
     
     if request.form['user'] == os.environ['USER'] and request.form['pass'] == os.environ['PASS']:
-        return redirect(url_for('novo'))
+        session['usuario_logado'] = request.form['user']
+        flash(request.form['user'] + ' logou com sucesso!')
+        proxima_pagina = request.form['proxima']
+        return redirect(proxima_pagina if request.form['proxima'] != None else url_for('novo'))
     else:
         flash('Não logado, tente denovo!')
         return redirect(url_for('login'))
@@ -48,7 +55,7 @@ def autenticar():
 def logout():
     session['usuario_logado'] = None
     flash('Nenhum usuário logado!')
-    return redirect(url_for('/'))
+    return redirect(url_for('login'))
 
 
 if __name__ == '__main__': 
