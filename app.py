@@ -38,4 +38,9 @@ def logout():
     return redirect(url_for('/'))
 
 
-app.run(debug=True)
+if __name__ == '__main__': 
+    print('start serve')
+
+    from waitress import serve
+
+    serve(app, port=8080)

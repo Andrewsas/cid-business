@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+    flask:
+        build: .
+        container_name: "business_web"
+        restart: always
+        env_file: .env
+        ports:
+            - "8080:8080"
