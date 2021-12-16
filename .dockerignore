@@ -1,0 +1,6 @@
+.env
+*.pkl
+READEME.md
+*.git*
+*.yml
+Makefile

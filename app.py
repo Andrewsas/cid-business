@@ -1,8 +1,17 @@
-from flask import Flask, render_template, request, redirect, session, flash, url_for, send_from_directory
-import os, time
+import os
+import pickle
+import numpy as np
+import xgboost as xgb
+import utils.constants as Constants
+from flask import Flask, render_template, request, redirect, session, flash, url_for
+
+def load_model(file_name):
+    return pickle.load(open(file_name, "rb"))
+
+modelo = load_model(file_name = os.environ['PATH_MODEL'])
 
 app = Flask(__name__)
-app.secret_key = 'akçsmdakdlçamsd'
+app.secret_key = os.environ['SECRET']
 
 
 @app.route('/novo')
@@ -12,7 +21,11 @@ def novo():
 
 @app.route('/criar', methods=['POST'])
 def criar():
-    return redirect(url_for('novo'))
+    dados = request.get_json()
+    payload = np.array([dados[col] for col in Constants.cols])
+    payload = xgb.DMatrix([payload], feature_names=Constants.cols)
+    _score = np.float64(modelo.predict(payload)[0])
+    return redirect()
 
 
 @app.route('/')

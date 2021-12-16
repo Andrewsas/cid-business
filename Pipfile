@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 flask = "*"
 waitress = "*"
+numpy = "*"
+xgboost = "*"
 
 [dev-packages]
 
