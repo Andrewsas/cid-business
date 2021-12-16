@@ -1,19 +1,115 @@
 {% extends "template.html" %}
 {% block conteudo %}
     <form action="{{ url_for('criar') }}" method="post" enctype="multipart/form-data">
-        <fieldset>
-          <div class="form-group mt-3">
-            <label for="campo">Campo 1</label>
-            <input type="text" id="campo" name="campo" class="form-control">
+        <fieldset class="row">
+          <div class="form-group col-12 col-md-4 mt-3">
+            <label for="QuoteNumber">QuoteNumber</label>
+            <input type="text" id="QuoteNumber" name="QuoteNumber" class="form-control opacity-input">
           </div>
-          <div class="form-group mt-3">
-            <label for="campo">Campo 2</label>
-            <input type="text" id="campo" name="campo" class="form-control">
+
+          <div class="form-group col-12 col-md-4 mt-3">
+            <label for="Field7">Field7</label>
+            <input type="text" id="Field7" name="Field7" class="form-control opacity-input">
           </div>
-          <div class="form-group mt-3">
-            <label for="campo">Campo 3</label>
-            <input type="text" id="campo" name="campo" class="form-control">
+          
+          <div class="form-group col-12 col-md-4 mt-3">
+            <label for="CoverageField6A">CoverageField6A</label>
+            <input type="text" id="CoverageField6A" name="CoverageField6A" class="form-control opacity-input">
           </div>
+
+          <div class="form-group col-12 col-md-4 mt-3">
+            <label for="CoverageField6B">CoverageField6B</label>
+            <input type="text" id="CoverageField6B" name="CoverageField6B" class="form-control opacity-input">
+          </div>
+
+          <div class="form-group col-12 col-md-4 mt-3">
+            <label for="CoverageField8">CoverageField8</label>
+            <input type="text" id="CoverageField8" name="CoverageField8" class="form-control opacity-input">
+          </div>
+
+          <div class="form-group col-12 col-md-4 mt-3">
+            <label for="CoverageField9">CoverageField9</label>
+            <input type="text" id="CoverageField9" name="CoverageField9" class="form-control opacity-input">
+          </div>
+
+          <div class="form-group col-12 col-md-4 mt-3">
+            <label for="CoverageField11B">CoverageField11B</label>
+            <input type="text" id="CoverageField11B" name="CoverageField11B" class="form-control opacity-input">
+          </div>
+
+          <div class="form-group col-12 col-md-4 mt-3">
+            <label for="SalesField1A">SalesField1A</label>
+            <input type="text" id="SalesField1A" name="SalesField1A" class="form-control opacity-input">
+          </div>
+
+
+          <div class="form-group col-12 col-md-4 mt-3">
+            <label for="SalesField1B">SalesField1B</label>
+            <input type="text" id="SalesField1B" name="SalesField1B" class="form-control opacity-input">
+          </div>
+
+
+          <div class="form-group col-12 col-md-4 mt-3">
+            <label for="SalesField3">SalesField3</label>
+            <input type="text" id="SalesField3" name="SalesField3" class="form-control opacity-input">
+          </div>
+
+
+          <div class="form-group col-12 col-md-4 mt-3">
+            <label for="SalesField4">SalesField4</label>
+            <input type="text" id="SalesField4" name="SalesField4" class="form-control opacity-input">
+          </div>
+
+          <div class="form-group col-12 col-md-4 mt-3">
+            <label for="SalesField5">SalesField5</label>
+            <input type="text" id="SalesField5" name="SalesField5" class="form-control opacity-input">
+          </div>
+
+          <div class="form-group col-12 col-md-4 mt-3">
+            <label for="PersonalField1">PersonalField1</label>
+            <input type="text" id="PersonalField1" name="PersonalField1" class="form-control opacity-input">
+          </div>
+
+          <div class="form-group col-12 col-md-4 mt-3">
+            <label for="PersonalField2">PersonalField2</label>
+            <input type="text" id="PersonalField2" name="PersonalField2" class="form-control opacity-input">
+          </div>
+
+          <div class="form-group col-12 col-md-4 mt-3">
+            <label for="PersonalField9">PersonalField9</label>
+            <input type="text" id="PersonalField9" name="PersonalField9" class="form-control opacity-input">
+          </div>
+
+          <div class="form-group col-12 col-md-4 mt-3">
+            <label for="PersonalField10A">PersonalField10A</label>
+            <input type="text" id="PersonalField10A" name="PersonalField10A" class="form-control opacity-input">
+          </div>
+
+          <div class="form-group col-12 col-md-4 mt-3">
+            <label for="PersonalField10B">PersonalField10B</label>
+            <input type="text" id="PersonalField10B" name="PersonalField10B" class="form-control opacity-input">
+          </div>
+
+          <div class="form-group col-12 col-md-4 mt-3">
+            <label for="PersonalField12">PersonalField12</label>
+            <input type="text" id="PersonalField12" name="PersonalField12" class="form-control opacity-input">
+          </div>
+
+          <div class="form-group col-12 col-md-4 mt-3">
+            <label for="PropertyField34">PropertyField34</label>
+            <input type="text" id="PropertyField34" name="PropertyField34" class="form-control opacity-input">
+          </div>
+
+          <div class="form-group col-12 col-md-4 mt-3">
+            <label for="PropertyField35">PropertyField35</label>
+            <input type="text" id="PropertyField35" name="PropertyField35" class="form-control opacity-input">
+          </div>
+
+          <div class="form-group col-12 col-md-4 mt-3">
+            <label for="PropertyField37">PropertyField37</label>
+            <input type="text" id="PropertyField37" name="PropertyField37" class="form-control opacity-input">
+          </div>
+
           <p class="text-center m-4">
             <button type="submit" class="btn btn-primary btn-salvar">Realizar Predição</button>
           </p>
