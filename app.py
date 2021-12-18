@@ -1,33 +1,26 @@
 import os
-import pickle
-import numpy as np
-import xgboost as xgb
-import utils.constants as Constants
+import json
+from utils.model_predict import ModelPredict
 from flask import Flask, render_template, request, redirect, session, flash, url_for
-
-def load_model(file_name):
-    return pickle.load(open(file_name, "rb"))
-
-modelo = load_model(file_name = os.environ['PATH_MODEL'])
 
 app = Flask(__name__)
 app.secret_key = os.environ['SECRET']
 
+model = ModelPredict()
 
 @app.route('/novo')
 def novo():
     if 'usuario_logado' not in session or session['usuario_logado'] == None:
         return redirect(url_for('login', proxima=url_for('novo')))
-    return render_template('novo.html', titulo='Nova predição')
+    return render_template('novo.html', titulo='Interesse de Aquisição')
 
 
 @app.route('/criar', methods=['POST'])
 def criar():
-    dados = request.get_json()
-    payload = np.array([dados[col] for col in Constants.cols])
-    payload = xgb.DMatrix([payload], feature_names=Constants.cols)
-    _score = np.float64(modelo.predict(payload)[0])
-    return redirect()
+    data = model.predict(request.form)
+    msg = "Alta probabilidade de Aquisição" if data > 0.7 else "Baixa probabilidade de Aquisição"
+    flash(msg)
+    return redirect(url_for('novo'))
 
 
 @app.route('/')
