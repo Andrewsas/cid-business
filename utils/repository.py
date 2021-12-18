@@ -11,6 +11,11 @@ class Repository:
         predict = collection.insert_one(data).inserted_id
         return predict
 
+    def save_predict_validate(seld, data):
+        collection = seld.db['validates']
+        predict = collection.insert_one(data).inserted_id
+        return predict
+
     def get_predicts(seld):
         collection = seld.db['predicts']
         predicts = collection.find()

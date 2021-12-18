@@ -23,10 +23,17 @@ def criar():
     return redirect(url_for('novo'))
 
 
+
+@app.route('/validate')
+def validate():
+    pngImageB64String = model.validate()
+    return render_template("image.html", image=pngImageB64String, titulo='Validação do Modelo')
+
+
 @app.route('/')
 def login():
-    if 'usuario_logado' in session or session['usuario_logado'] != None:
-        return redirect(url_for('novo'))
+    #if 'usuario_logado' in session or session['usuario_logado'] != None:
+        #return redirect(url_for('novo'))
     proxima = (request.args.get('proxima') if request.args.get('proxima') != None else '/novo')
     return render_template('login.html', proxima=proxima)
 

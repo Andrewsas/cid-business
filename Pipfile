@@ -9,6 +9,9 @@ waitress = "*"
 numpy = "1.21.3"
 xgboost = "1.5.0"
 pymongo = "==3.5.1"
+pandas = "*"
+scikit-learn = "*"
+matplotlib = "*"
 
 [dev-packages]
 
